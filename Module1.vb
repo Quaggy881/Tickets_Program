@@ -5,9 +5,10 @@
         Dim ticketprice As Integer = 20
         Dim ticketnum As Integer
         Dim ticketfinalprice As Integer
-        Dim disc10 As Decimal = 0.1
-        Dim disc20 As Decimal = 0.2
+        Dim disc10 As Decimal = 0.9
+        Dim disc20 As Decimal = 0.8
         Dim ticketogprice As Integer
+        Dim finaltotal As Integer
 
         Do
 
@@ -26,7 +27,6 @@
 
         Do
 
-
             ticketogprice = ticketnum * ticketprice
 
 
@@ -38,12 +38,12 @@
 
                 ElseIf ticketnum >= 10 And ticketnum <= 19 Then
 
-                    ticketfinalprice = ticketogprice - (ticketogprice * disc10)
+                    ticketfinalprice = ticketogprice * disc10
 
                 ElseIf ticketnum > 19 And ticketnum <= 25 Then
 
 
-                    ticketfinalprice = ticketogprice - (ticketogprice * disc20)
+                    ticketfinalprice = ticketogprice * disc20
 
                 End If
 
@@ -54,7 +54,6 @@
             Else
 
                 Console.WriteLine(vbNewLine & "Number of tickets invalid" & vbNewLine)
-                Console.ReadLine()
 
             End If
 
@@ -62,9 +61,12 @@
             Console.WriteLine(vbNewLine & "Input the number of tickets to be bought" & vbNewLine & vbNewLine & "Or" & vbNewLine & vbNewLine & "input -1 to end " & vbNewLine & vbNewLine)
             ticketnum = Console.ReadLine()
 
+            finaltotal += ticketfinalprice
 
         Loop While ticketnum <> -1
 
+        Console.WriteLine("The total of all the tickets " & finaltotal)
+        Console.ReadLine()
 
     End Sub
 
